@@ -9,3 +9,17 @@ before_install:
 
 script:
 - docker run -e CI=true boblinza/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-187644748713"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+env:
+  - secure: "T0QzBKuZTyaQIjNoy+KscQEh4vwdCcKtS2aog+VPtdHPZhCqjs/eKC6HtGeGb557pY+i3647itvcKYYN+fVwiiTXZJVS0IrkAhQSVVArK+czITKbBGlG45L7wPQ1C66gGKobCPtpgh8zNOjStz22M9PKAfmvv+GIc5LzhNBIaupMiYzPf0JK1k2azdvsIZFw7mtd9Q0LcwiFGKKB0tKCC4hmAThdZ2k+DVmbZgcUhQH2ZL4sa1lz10DdtZwtMsQfgbokqIpLHrl7hvew8yOzw+fCbRVTPbZSvnvuFhWwWtqB+2t7iHvL3x0MtETTewIhvUOb8yJDGRabichKiAqRsdMQH5YWoCLkFyuK4T0SzJo5kE6MNEP0rwvg63fX1HEdkRPCARoR19lypoMIlD16jVcjSCoz2pvsIzn3cm7BL2OlsMgwShVCUTZ/rlBBEWkkr5NFAuw/IbKNiQJSDiZhhoep6feRrOF/+JVO0jPrHNDEJlF+br0sSOpjT5agZuYS2UDjzMR81bgVeWfSJMN3Y9/3z+h4UXhWri8ok21L2dBHr1xW92fQA1StKya3QRK744sUu0dyWaSMkTvaVD1076JlIGHDX/T78+Hy1PWlcASbZHRzVCCEVr30si8uX8g5YJapQB2vkUC4JgIzK0FpHQqBpWEpSnUBAhYspmlcPy4="
+
+  - secure: "fHtIvgm8mrf0Waw/oEdrquhKVsZ37xQtuNS8svNzU7wO0sFcTeJxSPHl6AtPifS5n33mdzL5ZOAcw01TE2tVk9muTfXVH6BGQZ4WUsVSZm1dQCvaeG48qXAGObomfnY3J1VyjYDmJs0lPSsVwuWQOjB2Fv8vWabak//+Bz2pWWdRcZQ4Een0XSmSJvJPbktqmemYGU5hxYWBWnA1LJfCTATLGuBj7956Ew8/+iozBOqXMBx8AqpSLLSO15GQHjKPkLO+nOmjeBouwrcpSrO3QlrMaW2bm8oZDySmRKNdVTZCuhAt37H/WPHz4Yo62Ti9CPXoK0sHWaEfBwOysLMbRC2pCgoomTDfKl+D3dX1YXsyaecposqaU+K4LnWzx1O63BvQTQJRh+p95h4GsrT6QIapqD99eg62SuUnCVXETTEL8EzZbMY2eOym7eOo/movu2IB7LWI/uTEwE3NumCmpSLCQ4Zk43K+fUxOJtgAKBNywY79by00QsR4Pm09M15KpfWjBz2tZKP99o4HEGOBXkbru4YvPQKyiaF6iZXoTRP3Bo3UWbTbx8TgyE2M9S6Gwj1qwzqMuXqHWm3Sh2G5xLhfnztF0Jgfc9HMPMxDj6C2Z2chPHpcmjpl/P2pfEmh/wZycZvmZKd6oojqAkkf+hI2kmfG4nUQ+Vl5pxIs1x8="
